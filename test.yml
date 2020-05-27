@@ -3,19 +3,19 @@
   hosts: all
 
   tasks:
-  - name: dat ip cho loopback
-    ios_13_inteface:
-      name: loopback {{ item.number }}
-      ipv4: 10.0.{{ item.ip }}.1/24
-      state: present  
-    with_items:
-    - { number: 1, ip: 1 }
-    - { number: 2, ip: 2 }
-    - { number: 3, ip: 3 }
-  - name: Show loopback
-    ios_command:
-      commands:
-        - show ip int brief
-    register: show_loopback
+    - name: dat ip cho loopback
+      ios_13_inteface:
+        name: loopback {{ item.number }}
+        ipv4: 10.0.{{ item.ip }}.1/24
+        state: present  
+      with_items:
+        - { number: 1, ip: 1 }
+        - { number: 2, ip: 2 }
+        - { number: 3, ip: 3 }
+    - name: Show loopback
+      ios_command:
+        commands:
+          - show ip int brief
+      register: show_loopback
 
-  - debug: var=show_loopback.stdout_lines
+    - debug: var=show_loopback.stdout_lines
