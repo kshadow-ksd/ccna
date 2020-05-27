@@ -2,7 +2,7 @@
 - name: baitap
   hosts: all
 
-  task:
+  tasks:
   - name: dat ip cho loopback
     ios_13_inteface:
       name: loopback {{ item.number }}
