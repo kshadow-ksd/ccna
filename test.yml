@@ -4,7 +4,7 @@
 
   tasks:
     - name: dat ip cho loopback
-      ios_13_inteface:
+      ios_l3_inteface:
         name: loopback {{ item.number }}
         ipv4: 10.0.{{ item.ip }}.1/24
         state: present  
