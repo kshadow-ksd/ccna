@@ -14,8 +14,8 @@
     - { number: 3, ip: 3 }
   - name: Show loopback
     ios_command:
-        commands:
-          - show ip int brief
+      commands:
+        - show ip int brief
     register: show_loopback
 
   - debug: var=show_loopback.stdout_lines
